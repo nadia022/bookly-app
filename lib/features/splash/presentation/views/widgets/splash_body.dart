@@ -1,6 +1,6 @@
 import 'package:bookly_app/core/utils/app_assets.dart';
 import 'package:bookly_app/core/utils/app_styles.dart';
-import 'package:bookly_app/features/home/presentation/views/home_view/home_view.dart';
+import 'package:bookly_app/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -15,10 +15,7 @@ class _SplashBodyState extends State<SplashBody> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 3), () {
-      Get.to(() => const HomeView(),
-          transition: Transition.fade, duration: const Duration(seconds: 1));
-    });
+    navigateToHome();
   }
 
   @override
@@ -41,5 +38,12 @@ class _SplashBodyState extends State<SplashBody> {
         )
       ],
     );
+  }
+
+  void navigateToHome() {
+    Future.delayed(const Duration(seconds: 3), () {
+      Get.to(() => const HomeView(),
+          transition: Transition.fade, duration: const Duration(seconds: 1));
+    });
   }
 }
