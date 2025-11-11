@@ -1,8 +1,8 @@
 import 'package:bookly_app/core/utils/app_assets.dart';
 import 'package:flutter/material.dart';
 
-class BestSellerListviewItem extends StatelessWidget {
-  const BestSellerListviewItem({super.key});
+class BestSellerItem extends StatelessWidget {
+  const BestSellerItem({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -13,7 +13,7 @@ class BestSellerListviewItem extends StatelessWidget {
       child: Row(
         children: [
           Container(
-            margin: EdgeInsets.symmetric(horizontal: width * 0.057),
+            margin: EdgeInsets.symmetric(horizontal: width * 0.05),
             width: width * 0.2,
             height: height * 0.16,
             decoration: BoxDecoration(
