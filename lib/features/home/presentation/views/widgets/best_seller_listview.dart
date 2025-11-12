@@ -2,6 +2,8 @@ import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_
 import 'package:flutter/material.dart';
 
 class BestSellerListview extends StatelessWidget {
+  const BestSellerListview({super.key});
+
   @override
   Widget build(BuildContext context) {
     return ListView.builder(

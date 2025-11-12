@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/app_assets.dart';
+import 'package:bookly_app/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class BestSellerItem extends StatelessWidget {
@@ -21,24 +22,27 @@ class BestSellerItem extends StatelessWidget {
                 image: const DecorationImage(
                     image: AssetImage(AppAssets.test2), fit: BoxFit.fill)),
           ),
-          const Column(
+           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
                 maxLines: 2,
                 "Harry Potter \nand the Goblet of Fire",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                style: AppStyles.semibold20.copyWith( fontFamily: 'GT Sectra Fine',
+),
               ),
-              Text(
-                "J.K. Rowling",
-                style: TextStyle(
-                    fontSize: 18, color: Color.fromARGB(255, 151, 159, 163)),
+              const Opacity(
+                opacity: 0.7,
+                child: Text(
+                  "J.K. Rowling",
+                  style: AppStyles.medium14
+                ),
               ),
-              Row(
+              const Row(
                 children: [
                   Text(
                     "19.99\$",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: AppStyles.bold20,
                   ),
                   SizedBox(
                     width: 50,
@@ -52,16 +56,17 @@ class BestSellerItem extends StatelessWidget {
                   ),
                   Text(
                     "4.8",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                    style:AppStyles.medium16 ,
                   ),
                   SizedBox(
                     width: 3,
                   ),
-                  Text(
-                    "(2350)",
-                    style: TextStyle(
-                        fontSize: 18,
-                        color: Color.fromARGB(255, 151, 159, 163)),
+                  Opacity(
+                    opacity: 0.5,
+                    child: Text(
+                      "(2350)",
+                      style: AppStyles.regular14
+                    ),
                   ),
                 ],
               ),

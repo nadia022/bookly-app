@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/app_styles.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/best_seller_listview.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/custom_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/featured_book_item_listview.dart';
@@ -12,6 +13,7 @@ class HomeViewBody extends StatelessWidget {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     return CustomScrollView(
+      // physics: const BouncingScrollPhysics(),
       slivers: [
         SliverToBoxAdapter(
           child: Padding(
@@ -38,12 +40,9 @@ class HomeViewBody extends StatelessWidget {
                   padding: EdgeInsets.symmetric(horizontal: width * 0.05),
                   child: const Text(
                     "Best Seller",
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    style: AppStyles.semibold20,
                   ),
                 ),
-                // SizedBox(
-                //   height: height * 0.03,
-                // ),
               ],
             ),
           ),
@@ -51,45 +50,45 @@ class HomeViewBody extends StatelessWidget {
         SliverFillRemaining(
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: height * 0.015),
-            child: BestSellerListview(),
+            child: const BestSellerListview(),
           ),
-        )
+        ),
       ],
     );
     // return Padding(
     //   padding: EdgeInsets.symmetric(vertical: height * 0.05),
-    //   child: Column(
-    //     crossAxisAlignment: CrossAxisAlignment.start,
-    //     children: [
-    //       Padding(
-    //         padding: EdgeInsets.symmetric(horizontal: width * 0.062),
-    //         child: const CustomAppBar(),
-    //       ),
-    //       SizedBox(
-    //         height: height * 0.032,
-    //       ),
-    //       Container(
-    //         margin: EdgeInsets.symmetric(horizontal: width * 0.057),
-    //         height: height * 0.3,
-    //         child:const FeaturedBookItemListview(),
-    //       ),
-    //       SizedBox(
-    //         height: height * 0.05,
-    //       ),
-    //       Padding(
-    //         padding: EdgeInsets.symmetric(horizontal: width * 0.057),
-    //         child: const Text(
-    //           "Best Seller",
-    //           style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    //   child: SingleChildScrollView(
+    //     child: Column(
+    //       crossAxisAlignment: CrossAxisAlignment.start,
+    //       children: [
+    //         Padding(
+    //           padding: EdgeInsets.symmetric(horizontal: width * 0.062),
+    //           child: const CustomAppBar(),
     //         ),
-    //       ),
-    //       SizedBox(
-    //         height: height * 0.03,
-    //       ),
-    //       Expanded(
-    //         child: BestSellerListview(),
-    //       ),
-    //     ],
+    //         SizedBox(
+    //           height: height * 0.032,
+    //         ),
+    //         Container(
+    //           margin: EdgeInsets.symmetric(horizontal: width * 0.057),
+    //           height: height * 0.3,
+    //           child: const FeaturedBookItemListview(),
+    //         ),
+    //         SizedBox(
+    //           height: height * 0.05,
+    //         ),
+    //         Padding(
+    //           padding: EdgeInsets.symmetric(horizontal: width * 0.057),
+    //           child: const Text(
+    //             "Best Seller",
+    //             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+    //           ),
+    //         ),
+    //         SizedBox(
+    //           height: height * 0.03,
+    //         ),
+    //         BestSellerListview(),
+    //       ],
+    //     ),
     //   ),
     // );
   }

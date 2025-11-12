@@ -34,7 +34,7 @@ class _SplashBodyState extends State<SplashBody> {
         const Text(
           'Read Free Books',
           textAlign: TextAlign.center,
-          style: AppStyles.textStylebold,
+          style: AppStyles.semibold20,
         )
       ],
     );
