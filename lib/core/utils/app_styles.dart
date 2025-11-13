@@ -1,3 +1,4 @@
+import 'package:bookly_app/core/utils/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class AppStyles {
@@ -39,16 +40,16 @@ class AppStyles {
     fontWeight: FontWeight.w400,
   );
   static const TextStyle regular16 = TextStyle(
-    fontSize: 16,
-    fontWeight: FontWeight.w400,
-    fontFamily: 'Montserrat',
-  );
+      fontSize: 16,
+      fontWeight: FontWeight.w400,
+      fontFamily: 'Montserrat',
+      color: AppColors.white);
 
   static const TextStyle bold18 = TextStyle(
-    fontSize: 18,
-    fontWeight: FontWeight.bold,
-    fontFamily: 'Montserrat',
-  );
+      fontSize: 18,
+      fontWeight: FontWeight.bold,
+      fontFamily: 'Montserrat',
+      color: AppColors.black);
 
   static const TextStyle semibold14 = TextStyle(
     fontSize: 14,
