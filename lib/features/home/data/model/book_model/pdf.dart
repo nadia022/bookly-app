@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
 
 class Pdf extends Equatable {
@@ -7,24 +5,13 @@ class Pdf extends Equatable {
 
 	const Pdf({this.isAvailable});
 
-	factory Pdf.fromMap(Map<String, dynamic> data) => Pdf(
-				isAvailable: data['isAvailable'] as bool?,
+	factory Pdf.fromJson(Map<String, dynamic> json) => Pdf(
+				isAvailable: json['isAvailable'] as bool?,
 			);
 
-	Map<String, dynamic> toMap() => {
+	Map<String, dynamic> toJson() => {
 				'isAvailable': isAvailable,
 			};
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Pdf].
-	factory Pdf.fromJson(String data) {
-		return Pdf.fromMap(json.decode(data) as Map<String, dynamic>);
-	}
-  /// `dart:convert`
-  ///
-  /// Converts [Pdf] to a JSON string.
-	String toJson() => json.encode(toMap());
 
 	@override
 	List<Object?> get props => [isAvailable];

@@ -1,10 +1,6 @@
-import 'dart:convert';
-
 import 'package:equatable/equatable.dart';
-
 import 'access_info.dart';
 import 'sale_info.dart';
-import 'search_info.dart';
 import 'volume_info.dart';
 
 class Item extends Equatable {
@@ -15,7 +11,6 @@ class Item extends Equatable {
 	final VolumeInfo? volumeInfo;
 	final SaleInfo? saleInfo;
 	final AccessInfo? accessInfo;
-	final SearchInfo? searchInfo;
 
 	const Item({
 		this.kind, 
@@ -25,49 +20,33 @@ class Item extends Equatable {
 		this.volumeInfo, 
 		this.saleInfo, 
 		this.accessInfo, 
-		this.searchInfo, 
 	});
 
-	factory Item.fromMap(Map<String, dynamic> data) => Item(
-				kind: data['kind'] as String?,
-				id: data['id'] as String?,
-				etag: data['etag'] as String?,
-				selfLink: data['selfLink'] as String?,
-				volumeInfo: data['volumeInfo'] == null
+	factory Item.fromJson(Map<String, dynamic> json) => Item(
+				kind: json['kind'] as String?,
+				id: json['id'] as String?,
+				etag: json['etag'] as String?,
+				selfLink: json['selfLink'] as String?,
+				volumeInfo: json['volumeInfo'] == null
 						? null
-						: VolumeInfo.fromMap(data['volumeInfo'] as Map<String, dynamic>),
-				saleInfo: data['saleInfo'] == null
+						: VolumeInfo.fromJson(json['volumeInfo'] as Map<String, dynamic>),
+				saleInfo: json['saleInfo'] == null
 						? null
-						: SaleInfo.fromMap(data['saleInfo'] as Map<String, dynamic>),
-				accessInfo: data['accessInfo'] == null
+						: SaleInfo.fromJson(json['saleInfo'] as Map<String, dynamic>),
+				accessInfo: json['accessInfo'] == null
 						? null
-						: AccessInfo.fromMap(data['accessInfo'] as Map<String, dynamic>),
-				searchInfo: data['searchInfo'] == null
-						? null
-						: SearchInfo.fromMap(data['searchInfo'] as Map<String, dynamic>),
+						: AccessInfo.fromJson(json['accessInfo'] as Map<String, dynamic>),
 			);
 
-	Map<String, dynamic> toMap() => {
+	Map<String, dynamic> toJson() => {
 				'kind': kind,
 				'id': id,
 				'etag': etag,
 				'selfLink': selfLink,
-				'volumeInfo': volumeInfo?.toMap(),
-				'saleInfo': saleInfo?.toMap(),
-				'accessInfo': accessInfo?.toMap(),
-				'searchInfo': searchInfo?.toMap(),
+				'volumeInfo': volumeInfo?.toJson(),
+				'saleInfo': saleInfo?.toJson(),
+				'accessInfo': accessInfo?.toJson(),
 			};
-
-  /// `dart:convert`
-  ///
-  /// Parses the string and returns the resulting Json object as [Item].
-	factory Item.fromJson(String data) {
-		return Item.fromMap(json.decode(data) as Map<String, dynamic>);
-	}
-  /// `dart:convert`
-  ///
-  /// Converts [Item] to a JSON string.
-	String toJson() => json.encode(toMap());
 
 	@override
 	List<Object?> get props {
@@ -79,7 +58,6 @@ class Item extends Equatable {
 				volumeInfo,
 				saleInfo,
 				accessInfo,
-				searchInfo,
 		];
 	}
 }
