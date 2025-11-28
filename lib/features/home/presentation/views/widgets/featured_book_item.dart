@@ -1,4 +1,3 @@
-import 'package:bookly_app/core/utils/app_assets.dart';
 import 'package:bookly_app/core/utils/app_colors.dart';
 import 'package:bookly_app/core/widget/custom_loading_widget.dart';
 import 'package:bookly_app/features/home/data/model/book_model/item.dart';
@@ -32,7 +31,7 @@ class FeaturedBookItem extends StatelessWidget {
                 return Container(
                   height: height * 0.3,
                   width: width * 0.42,
-                  child: Center(
+                  child:  Center(
                       child: Icon(
                     Icons.error,
                     color: AppColors.white,
