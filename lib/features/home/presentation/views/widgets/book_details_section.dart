@@ -9,7 +9,7 @@ class BookDetailsSection extends StatelessWidget{
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const FeaturedBookItem(),
+        //  FeaturedBookItem(),
             const SizedBox(
               height: 42,
             ),
