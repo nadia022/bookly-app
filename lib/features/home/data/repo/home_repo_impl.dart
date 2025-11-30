@@ -15,11 +15,11 @@ class HomeRepoImpl implements HomeRepo {
   Future<Either<Failure, List<Item>>> featchNewestBooks() async {
     try {
       var data =
-        await apiServices.get(endPoint: ApiEndpoints.newestBooksEndPoint);
-      var response=BookModel.fromJson(data);
+          await apiServices.get(endPoint: ApiEndpoints.newestBooksEndPoint);
+      var response = BookModel.fromJson(data);
       return Right(response.items!);
     } catch (e) {
-      if(e is DioException){
+      if (e is DioException) {
         return Left(ServerFailure.fromDioError(e));
       }
       return Left(ServerFailure(e.toString()));
@@ -27,14 +27,31 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<Item>>> getFeaturedBooks()async {
+  Future<Either<Failure, List<Item>>> featchFeaturedBooks() async {
     try {
       var data =
-        await apiServices.get(endPoint: ApiEndpoints.featuredBooksEndPoint);
-      var response=BookModel.fromJson(data);
+          await apiServices.get(endPoint: ApiEndpoints.featuredBooksEndPoint);
+      var response = BookModel.fromJson(data);
       return Right(response.items!);
     } catch (e) {
-      if(e is DioException){
+      if (e is DioException) {
+        return Left(ServerFailure.fromDioError(e));
+      }
+      return Left(ServerFailure(e.toString()));
+    }
+  }
+
+  @override
+  Future<Either<Failure, List<Item>>> featchSuggestedBooks(
+      {required String category}) async {
+    try {
+      var data = await apiServices.get(
+          endPoint:
+              "volumes?Filtering=free-ebooks&q=subject:$category&Sorting=relevance");
+      var response = BookModel.fromJson(data);
+      return Right(response.items!);
+    } catch (e) {
+      if (e is DioException) {
         return Left(ServerFailure.fromDioError(e));
       }
       return Left(ServerFailure(e.toString()));

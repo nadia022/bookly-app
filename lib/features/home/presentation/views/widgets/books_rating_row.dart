@@ -3,31 +3,32 @@ import 'package:bookly_app/core/utils/app_styles.dart';
 import 'package:flutter/material.dart';
 
 class BooksRatingRow extends StatelessWidget {
-  const BooksRatingRow({super.key});
+   BooksRatingRow({super.key,required this.maturityRating });
+   String maturityRating;
 
   @override
   Widget build(BuildContext context) {
-    return const Row(
+    return  Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        Icon(
+       const Icon(
           Icons.star,
           color: AppColors.yellow,
         ),
-        SizedBox(
+        const SizedBox(
           width: 3,
         ),
         Text(
-          "4.8",
+          maturityRating,
           style: AppStyles.medium16,
         ),
-        SizedBox(
+        const SizedBox(
           width: 3,
         ),
-        Opacity(
-          opacity: 0.5,
-          child: Text("(2350)", style: AppStyles.regular14),
-        ),
+        // Opacity(
+        //   opacity: 0.5,
+        //   child: Text("($ratingsCount)", style: AppStyles.regular14),
+        // ),
       ],
     );
   }

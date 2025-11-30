@@ -39,17 +39,19 @@ class NewestBookItem extends StatelessWidget {
                   child: Text(book.volumeInfo?.authors?[0] ?? "No Author",
                       style: AppStyles.medium14),
                 ),
-                const Row(
+                 Row(
                   children: [
-                    Text(
-                      "0\$",
+                    const Text(
+                      "0 \$",
                       style: AppStyles.bold20,
                     ),
-                    Spacer(),
+                    const Spacer(),
                     // SizedBox(
                     //   width: width * 0.2,
                     // ),
-                    BooksRatingRow(),
+                    BooksRatingRow(
+                      maturityRating: book.volumeInfo?.maturityRating??"NO Rating",
+                    ),
                   ],
                 ),
               ],

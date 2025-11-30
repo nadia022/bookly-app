@@ -14,87 +14,90 @@ class HomeViewBody extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: Padding(
-            padding: EdgeInsets.only(top: height * 0.05),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: width * 0.062),
-                  child: const CustomAppBar(),
-                ),
-                SizedBox(
-                  height: height * 0.032,
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: width * 0.05),
-                  height: height * 0.3,
-                  child: FeaturedBookListview(),
-                ),
-                SizedBox(
-                  height: height * 0.04,
-                ),
-                Padding(
-                  padding: EdgeInsets.symmetric(horizontal: width * 0.05),
-                  child: const Text(
-                    "Newest Books",
-                    style: AppStyles.semibold20,
-                  ),
-                ),
-              ],
+    return Padding(
+      padding: EdgeInsets.only(top: height * 0.05),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: width * 0.062),
+            child: const CustomAppBar(),
+          ),
+          SizedBox(
+            height: height * 0.032,
+          ),
+          Container(
+            margin: EdgeInsets.symmetric(horizontal: width * 0.057),
+            height: height * 0.3,
+            child: FeaturedBookListview(),
+          ),
+          SizedBox(
+            height: height * 0.05,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: width * 0.057),
+            child: const Text(
+              "Newest Books",
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
             ),
           ),
-        ),
-        SliverFillRemaining(
-          child: Padding(
-            padding: EdgeInsets.symmetric(vertical: height * 0.015),
-            child: GestureDetector(
-                onTap: () {
-                  GoRouter.of(context).push(AppRouter.bookDetailsViewPath);
-                },
-                child: const NewestBooksListView()),
+          SizedBox(
+            height: height * 0.03,
           ),
-        ),
-      ],
+          Expanded(
+              child: GestureDetector(
+                  onTap: () {
+                    GoRouter.of(context).push(AppRouter.bookDetailsViewPath);
+                  },
+                  child: const NewestBooksListView())),
+        ],
+      ),
     );
-    // return Padding(
-    //   padding: EdgeInsets.symmetric(vertical: height * 0.05),
-    //   child: SingleChildScrollView(
-    //     child: Column(
-    //       crossAxisAlignment: CrossAxisAlignment.start,
-    //       children: [
-    //         Padding(
-    //           padding: EdgeInsets.symmetric(horizontal: width * 0.062),
-    //           child: const CustomAppBar(),
+    // return CustomScrollView(
+    //   slivers: [
+    //     SliverToBoxAdapter(
+    //       child: Padding(
+    //         padding: EdgeInsets.only(top: height * 0.05),
+    //         child: Column(
+    //           crossAxisAlignment: CrossAxisAlignment.start,
+    //           children: [
+    //             Padding(
+    //               padding: EdgeInsets.symmetric(horizontal: width * 0.062),
+    //               child: const CustomAppBar(),
+    //             ),
+    //             SizedBox(
+    //               height: height * 0.032,
+    //             ),
+    //             Container(
+    //               margin: EdgeInsets.symmetric(horizontal: width * 0.05),
+    //               height: height * 0.3,
+    //               child: FeaturedBookListview(),
+    //             ),
+    //             SizedBox(
+    //               height: height * 0.04,
+    //             ),
+    //             Padding(
+    //               padding: EdgeInsets.symmetric(horizontal: width * 0.05),
+    //               child: const Text(
+    //                 "Newest Books",
+    //                 style: AppStyles.semibold20,
+    //               ),
+    //             ),
+    //           ],
     //         ),
-    //         SizedBox(
-    //           height: height * 0.032,
-    //         ),
-    //         Container(
-    //           margin: EdgeInsets.symmetric(horizontal: width * 0.057),
-    //           height: height * 0.3,
-    //           child: const FeaturedBookItemListview(),
-    //         ),
-    //         SizedBox(
-    //           height: height * 0.05,
-    //         ),
-    //         Padding(
-    //           padding: EdgeInsets.symmetric(horizontal: width * 0.057),
-    //           child: const Text(
-    //             "Best Seller",
-    //             style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-    //           ),
-    //         ),
-    //         SizedBox(
-    //           height: height * 0.03,
-    //         ),
-    //         BestSellerListview(),
-    //       ],
+    //       ),
     //     ),
-    //   ),
+    //     SliverFillRemaining(
+    //       child: Padding(
+    //         padding: EdgeInsets.symmetric(vertical: height * 0.015),
+    //         child: GestureDetector(
+    //             onTap: () {
+    //               GoRouter.of(context).push(AppRouter.bookDetailsViewPath);
+    //             },
+    //             child: const Expanded(child: NewestBooksListView())),
+    //       ),
+    //     ),
+    //   ],
     // );
   }
 }
