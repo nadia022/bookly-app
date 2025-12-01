@@ -44,12 +44,8 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(
             height: height * 0.03,
           ),
-          Expanded(
-              child: GestureDetector(
-                  onTap: () {
-                    GoRouter.of(context).push(AppRouter.bookDetailsViewPath);
-                  },
-                  child: const NewestBooksListView())),
+          const Expanded(
+              child:  NewestBooksListView()),
         ],
       ),
     );

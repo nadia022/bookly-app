@@ -1,4 +1,5 @@
 import 'package:bookly_app/core/utils/app_styles.dart';
+import 'package:bookly_app/features/home/data/model/book_model/item.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/book_details_section.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/books_rating_row.dart';
@@ -7,8 +8,8 @@ import 'package:bookly_app/features/home/presentation/views/widgets/suggested_bo
 import 'package:flutter/material.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
-  const BookDetailsViewBody({super.key});
-
+   BookDetailsViewBody({super.key,required this.book});
+   Item book;
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -26,7 +27,9 @@ class BookDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            // const BooksRatingRow(),
+             BooksRatingRow(
+              maturityRating: book.volumeInfo?.maturityRating??"No Rating",
+             ),
             const SizedBox(
               height: 40,
             ),
@@ -43,7 +46,9 @@ class BookDetailsViewBody extends StatelessWidget {
             const SizedBox(
               height: 20,
             ),
-            const SuggestedBooksList(),
+             SuggestedBooksList(
+              book: book,
+             ),
           ],
         ),
       ),

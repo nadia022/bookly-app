@@ -25,9 +25,10 @@ class NewestBookItem extends StatelessWidget {
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
-                  maxLines: 3,
+                  maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   book.volumeInfo?.title ?? "No Title",
                   style: AppStyles.semibold20.copyWith(
@@ -39,7 +40,7 @@ class NewestBookItem extends StatelessWidget {
                   child: Text(book.volumeInfo?.authors?[0] ?? "No Author",
                       style: AppStyles.medium14),
                 ),
-                 Row(
+                Row(
                   children: [
                     const Text(
                       "0 \$",
@@ -50,7 +51,8 @@ class NewestBookItem extends StatelessWidget {
                     //   width: width * 0.2,
                     // ),
                     BooksRatingRow(
-                      maturityRating: book.volumeInfo?.maturityRating??"NO Rating",
+                      maturityRating:
+                          book.volumeInfo?.maturityRating ?? "NO Rating",
                     ),
                   ],
                 ),

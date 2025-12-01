@@ -6,6 +6,7 @@ import 'package:bookly_app/features/home/data/model/book_model/item.dart';
 import 'package:bookly_app/features/home/data/repo/home_repo.dart';
 import 'package:dartz/dartz.dart';
 import 'package:dio/dio.dart';
+import 'package:flutter/foundation.dart';
 
 class HomeRepoImpl implements HomeRepo {
   @override
@@ -42,12 +43,10 @@ class HomeRepoImpl implements HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<Item>>> featchSuggestedBooks(
-      {required String category}) async {
+  Future<Either<Failure, List<Item>>> featchSuggestedBooks(String category) async {
     try {
       var data = await apiServices.get(
-          endPoint:
-              "volumes?Filtering=free-ebooks&q=subject:$category&Sorting=relevance");
+          endPoint:"volumes?Filtering=free-ebooks&q=subject:$category&Sorting=relevance");
       var response = BookModel.fromJson(data);
       return Right(response.items!);
     } catch (e) {

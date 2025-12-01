@@ -1,8 +1,10 @@
+import 'package:bookly_app/core/utils/app_router.dart';
 import 'package:bookly_app/core/widget/custom_loading_widget.dart';
 import 'package:bookly_app/features/home/presentation/manager/newest_books_cubit/newest_books_cubit.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/newest_book_item.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:go_router/go_router.dart';
 
 class NewestBooksListView extends StatelessWidget {
   const NewestBooksListView({super.key});
@@ -16,11 +18,17 @@ class NewestBooksListView extends StatelessWidget {
             // physics: const NeverScrollableScrollPhysics(),
             padding: EdgeInsets.zero,
             itemBuilder: (context, index) {
-              return NewestBookItem(
-                book: state.books[index],
+              return GestureDetector(
+                onTap: () {
+                  GoRouter.of(context).push(AppRouter.bookDetailsViewPath,
+                      extra: state.books[index]);
+                },
+                child: NewestBookItem(
+                  book: state.books[index],
+                ),
               );
             },
-            itemCount: 10,
+            itemCount: state.books.length,
           );
         } else if (state is NewestBooksFailure) {
           return Center(
