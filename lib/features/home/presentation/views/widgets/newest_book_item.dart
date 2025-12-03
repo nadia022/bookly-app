@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utils/app_assets.dart';
 import 'package:bookly_app/core/utils/app_styles.dart';
 import 'package:bookly_app/features/home/data/model/book_model/item.dart';
-import 'package:bookly_app/features/home/presentation/views/widgets/book_cover_container.dart';
+import 'package:bookly_app/features/home/presentation/views/widgets/book_cover_widget.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/books_rating_row.dart';
 import 'package:flutter/material.dart';
 
@@ -18,16 +18,16 @@ class NewestBookItem extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: width * 0.05),
-            child: BookCoverContainer(
+            child: BookCoverWidget(
               book: book,
             ),
           ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Text(
+                  textAlign: TextAlign.start,
                   maxLines: 2,
                   overflow: TextOverflow.ellipsis,
                   book.volumeInfo?.title ?? "No Title",

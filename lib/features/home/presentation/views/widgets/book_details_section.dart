@@ -1,33 +1,38 @@
 import 'package:bookly_app/core/utils/app_styles.dart';
+import 'package:bookly_app/features/home/data/model/book_model/item.dart';
 import 'package:bookly_app/features/home/presentation/views/widgets/featured_book_item.dart';
 import 'package:flutter/material.dart';
 
-class BookDetailsSection extends StatelessWidget{
-  const BookDetailsSection({super.key});
+class BookDetailsSection extends StatelessWidget {
+  BookDetailsSection({super.key, required this.book});
+  Item book;
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        //  FeaturedBookItem(),
-            const SizedBox(
-              height: 42,
-            ),
-            const Text(
-              "The Jungle Book",
-              style: AppStyles.regular30,
-            ),
-            const SizedBox(
-              height: 12,
-            ),
-            Opacity(
-              opacity: 0.7,
-              child: Text("Rudyard Kipling",
-                  style: AppStyles.regular18
-                      .copyWith(fontStyle: FontStyle.italic)),
-            ),
+        FeaturedBookItem(
+          book: book,
+        ),
+        const SizedBox(
+          height: 30,
+        ),
+        Text(
+          maxLines: 2,
+          textAlign: TextAlign.center,
+          overflow: TextOverflow.ellipsis,
+          book.volumeInfo?.title ?? "No Title",
+          style: AppStyles.regular30,
+        ),
+        const SizedBox(
+          height: 12,
+        ),
+        Opacity(
+          opacity: 0.7,
+          child: Text(book.volumeInfo?.authors![0] ?? "No Author",
+              style: AppStyles.regular18.copyWith(fontStyle: FontStyle.italic)),
+        ),
       ],
     );
   }
-
 }
