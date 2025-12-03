@@ -19,12 +19,15 @@ class HomeViewBody extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          SizedBox(
+            height: height * 0.01,
+          ),
           Padding(
             padding: EdgeInsets.symmetric(horizontal: width * 0.062),
             child: const CustomAppBar(),
           ),
           SizedBox(
-            height: height * 0.032,
+            height: height * 0.03,
           ),
           Container(
             margin: EdgeInsets.symmetric(horizontal: width * 0.057),
@@ -44,8 +47,7 @@ class HomeViewBody extends StatelessWidget {
           SizedBox(
             height: height * 0.03,
           ),
-          const Expanded(
-              child:  NewestBooksListView()),
+          const Expanded(child: NewestBooksListView()),
         ],
       ),
     );

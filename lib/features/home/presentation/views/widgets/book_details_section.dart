@@ -15,10 +15,10 @@ class BookDetailsSection extends StatelessWidget {
           book: book,
         ),
         const SizedBox(
-          height: 30,
+          height: 37,
         ),
         Text(
-          maxLines: 2,
+          // maxLines: 2,
           textAlign: TextAlign.center,
           overflow: TextOverflow.ellipsis,
           book.volumeInfo?.title ?? "No Title",

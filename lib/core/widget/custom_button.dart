@@ -9,6 +9,7 @@ class CustomButton extends StatelessWidget {
   Radius? bottomLeftRadius;
   Radius? topRightRaduis;
   Radius? bottomRightRaduis;
+  VoidCallback? onPressed;
 
   CustomButton(
       {super.key,
@@ -18,7 +19,9 @@ class CustomButton extends StatelessWidget {
       this.topLeftRadius,
       this.bottomLeftRadius,
       this.topRightRaduis,
-      this.bottomRightRaduis});
+      this.bottomRightRaduis,
+      this.onPressed
+      });
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +38,7 @@ class CustomButton extends StatelessWidget {
             ),
           ),
         ),
-        onPressed: () {},
+        onPressed: onPressed,
         child: Text(
           text,
           style: textStyle,
