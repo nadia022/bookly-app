@@ -1,6 +1,6 @@
 import 'package:bloc/bloc.dart';
-import 'package:bookly_app/features/home/data/model/book_model/item.dart';
-import 'package:bookly_app/features/home/data/repo/home_repo.dart';
+import 'package:bookly_app/core/data/model/book_model/item.dart';
+import 'package:bookly_app/core/data/repo/home_repo.dart';
 import 'package:equatable/equatable.dart';
 part 'suggested_books_state.dart';
 

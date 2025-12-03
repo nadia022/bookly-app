@@ -1,7 +1,7 @@
 import 'package:bookly_app/core/utils/app_assets.dart';
 import 'package:bookly_app/core/utils/app_colors.dart';
 import 'package:bookly_app/core/widget/custom_loading_widget.dart';
-import 'package:bookly_app/features/home/data/model/book_model/item.dart';
+import 'package:bookly_app/core/data/model/book_model/item.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 

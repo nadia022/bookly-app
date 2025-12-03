@@ -2,7 +2,7 @@ import 'package:bookly_app/core/function/custom_launch_url.dart';
 import 'package:bookly_app/core/utils/app_colors.dart';
 import 'package:bookly_app/core/utils/app_styles.dart';
 import 'package:bookly_app/core/widget/custom_button.dart';
-import 'package:bookly_app/features/home/data/model/book_model/item.dart';
+import 'package:bookly_app/core/data/model/book_model/item.dart';
 import 'package:flutter/material.dart';
 
 class PriceButtonSection extends StatelessWidget{
